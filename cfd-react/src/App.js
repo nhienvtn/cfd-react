@@ -17,31 +17,31 @@ import Course from './pages/Course'
 
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Header />
-    //   <Navbar />
-    //   <Switch>
-    //     <route path='/' exact component={Home} />
-    //     {/* <route path='chi-tiet-khoa-hoc'><CourseDetail /></route>
-    //     <route path='gioi-thieu-coin'><CoinInvite /></route> */}
-    //     {/* <route path=''><Faq /></route>
-    //     <route path=''><Email /></route>
-    //     <route path=''><Cooperate /></route>
-    //     <route path=''><Profile /> </route>
-    //     <route path=''><Project /></route>
-    //     <route path=''><Register /></route>
-    //     <route path=''><Team /></route>
-    //     <route path=''><Payment /></route>
-    //     <route path=''><Course /></route>
-    //     <route path=''><Page404 /></route> */}
-    //   </Switch>
-    //   <Footer />
-    // </BrowserRouter>
-    <>
+    <BrowserRouter>
       <Header />
-      <Register />
+      <Navbar />
+      <Switch>
+        <Route path='/' exact component={Home} />
+        <Route path='/chi-tiet-khoa-hoc'><CourseDetail /></Route>
+        <Route path='/gioi-thieu-coin'><CoinInvite /></Route>
+        <Route path='/profile'><Profile /> </Route>
+        {/* <Route path=''><Faq /></Route>
+        <Route path=''><Email /></Route>
+        <Route path=''><Cooperate /></Route>
+        <Route path=''><Project /></Route>
+        <Route path=''><Register /></Route>
+        <Route path=''><Team /></Route>
+        <Route path=''><Payment /></Route>
+        <Route path=''><Course /></Route> */}
+        <Route ><Page404 /></Route>
+      </Switch>
       <Footer />
-    </>
+    </BrowserRouter>
+    // <>
+    //   <Header />
+    //   <Register />
+    //   <Footer />
+    // </>
   );
 }
 
