@@ -4,8 +4,13 @@ import { Course, Info, Project, Payment, Coin } from "./components";
 // import Project from "./components/Project";
 // import Payment from "./components/Payment";
 // import Coin from "./components/Coin";
+import { Switch, Route, Link, NavLink, useRouteMatch, useHistory } from "react-router-dom";
+import { useState } from "react";
 
 export default function Profile() {
+
+    let { url } = useRouteMatch()
+
     return (
         <main className="profile" id="main">
             <section>
@@ -21,18 +26,20 @@ export default function Profile() {
                 <div className="container">
                     <div className="tab">
                         <div className="tab-title">
-                            <a href="#" className="active">Thông tin tài khoản</a>
-                            <a href="#">Khóa học của bạn</a>
-                            <a href="#">Dự án đã làm</a>
-                            <a href="#">Lịch sử thanh toán</a>
-                            <a href="#">Quản lý COIN của tôi</a>
+                            <NavLink exact to={`${url}`} >Thông tin tài khoản</NavLink>
+                            <NavLink to={`${url}/khoa-hoc`}>Khóa học của bạn</NavLink>
+                            <NavLink to={`${url}/du-an`}>Dự án đã làm</NavLink>
+                            <NavLink to={`${url}/thanh-toan`}>Lịch sử thanh toán</NavLink>
+                            <NavLink to={`${url}/coin`}>Quản lý COIN của tôi</NavLink>
                         </div>
                         <div className="tab-content">
-                            <Info />
-                            <Course />
-                            <Project />
-                            <Payment />
-                            <Coin />
+                            <Switch>
+                                <Route path={`${url}`} exact component={Info} />
+                                <Route path={`${url}/khoa-hoc`} component={Course} />
+                                <Route path={`${url}/du-an`} component={Project} />
+                                <Route path={`${url}/thanh-toan`} component={Payment} />
+                                <Route path={`${url}/coin`} component={Coin} />
+                            </Switch>
                         </div>
                     </div>
                 </div>

@@ -1,24 +1,26 @@
+import { NavLink } from "react-router-dom";
+
 export function Navbar() {
     return (
-        <nav class="nav">
+        <nav className="nav">
             <ul>
-                <li class="li_login">
-                    <a href="!#">Đăng ký / Đăng nhập</a>
+                <li className="li_login">
+                    <NavLink to="!#">Đăng ký / Đăng nhập</NavLink>
                 </li>
-                <li class="active">
-                    <a href="!#">Trang chủ</a>
-                </li>
-                <li>
-                    <a href="!#">CFD Team</a>
+                <li className="active">
+                    <NavLink to="/">Trang chủ</NavLink>
                 </li>
                 <li>
-                    <a href="!#">Khóa Học</a>
+                    <NavLink to="/team">CFD Team</NavLink>
                 </li>
                 <li>
-                    <a href="!#">Dự Án</a>
+                    <NavLink to="/khoa-hoc">Khóa Học</NavLink>
                 </li>
                 <li>
-                    <a href="!#">Liên hệ</a>
+                    <NavLink to="/du-an">Dự Án</NavLink>
+                </li>
+                <li>
+                    <NavLink to="!#">Liên hệ</NavLink>
 
                 </li>
             </ul>

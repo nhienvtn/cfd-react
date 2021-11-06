@@ -2,6 +2,11 @@ import Banner from "./components/Banner";
 import CourseList from "./components/CourseList";
 
 export default function Home() {
+
+
+
+
+
     return (
         <main className="homepage" id="main">
             <Banner />

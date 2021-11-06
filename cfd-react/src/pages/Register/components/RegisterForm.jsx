@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 export default function RegisterForm() {
     const [form, setForm] = useState({
+        name: "",
+        phone: '',
+        email: '',
+        url: '',
+        text: ''
     });
 
     const onFormChange = (e) => {
-        let { name, value } = e.current.target
+        let { name, value } = e.target
         setForm({
             ...form,
             [name]: value,
@@ -21,6 +26,12 @@ export default function RegisterForm() {
         if (!form.phone) {
             errorObject.phone = "điền sđt zô đi"
         }
+        if (!form.url) {
+            errorObject.url = "điền link zô đi"
+        }
+        if (!form.text) {
+            errorObject.text = "điền sđt zô đi"
+        }
         if (!form.email) {
             errorObject.email = "điền email nữa"
         } else {
@@ -29,6 +40,13 @@ export default function RegisterForm() {
             }
         }
         setError(errorObject);
+        console.log(errorObject)
+        if (Object.keys(errorObject).length === 0) {
+            console.log('form...', form)
+        }
+
+
+        // console.log(form);
     }
 
     return (
@@ -65,7 +83,9 @@ export default function RegisterForm() {
                         Hiện có <strong>300 COIN</strong>
                         {/* Giảm giá còn <span><strong>5.800.000 VND</strong>, còn lại 100 COIN</span> */}
                         {/* Cần ít nhất 200 COIN để giảm giá */}
-                        <input type="checkbox" defaultChecked="checked" />
+                        <input
+
+                            type="checkbox" defaultChecked="checked" />
                         <span className="checkmark" />
                     </div>
                 </label>
@@ -81,7 +101,11 @@ export default function RegisterForm() {
                 </label>
                 <label>
                     <p>Ý kiến cá nhân</p>
-                    <input type="text" placeholder="Mong muốn cá nhân và lịch bạn có thể học." />
+                    <input
+                        onChange={onFormChange}
+                        value={form.text} type="text"
+                        name='text'
+                        type="text" placeholder="Mong muốn cá nhân và lịch bạn có thể học." />
                 </label>
                 <div onClick={onSubmitForm} className="btn main rect" >đăng ký</div>
             </div>
